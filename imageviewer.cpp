@@ -3,10 +3,11 @@
 ImageViewer::ImageViewer(QWidget *parent) :
     QWidget(parent)
 {
-    this->resize(480,480);
+    this->resize(540,540);
     this->QWidget::setWindowTitle("Image Viewer");
     this->hBoxlayout = new QHBoxLayout();
     this->lbImg = new QLabel("Image");
+    this->lbImg->setGeometry(20,20,480,480);
     this->hBoxlayout->addWidget(lbImg);
     this->setLayout(hBoxlayout);
 }
