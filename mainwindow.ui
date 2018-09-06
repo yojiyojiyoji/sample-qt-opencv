@@ -43,7 +43,10 @@
     <property name="title">
      <string>Process</string>
     </property>
-    <addaction name="actionFlip"/>
+    <addaction name="actionFlipHorizontal"/>
+    <addaction name="actionFlipVertical"/>
+    <addaction name="actionRotate90Clockwise"/>
+    <addaction name="actionRotate90Counterclockwise"/>
    </widget>
    <widget class="QMenu" name="menuTests">
     <property name="title">
@@ -52,8 +55,15 @@
     <addaction name="actionTest01"/>
     <addaction name="actionTest02"/>
    </widget>
+   <widget class="QMenu" name="menuWebcam">
+    <property name="title">
+     <string>Webcam</string>
+    </property>
+    <addaction name="actionOpenWebcamWindow"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuProcess"/>
+   <addaction name="menuWebcam"/>
    <addaction name="menuTests"/>
   </widget>
   <action name="actionOpen">
@@ -79,6 +89,31 @@
   <action name="actionTest02">
    <property name="text">
     <string>Test02</string>
+   </property>
+  </action>
+  <action name="actionOpenWebcamWindow">
+   <property name="text">
+    <string>Open Webcam Window</string>
+   </property>
+  </action>
+  <action name="actionRotate90Clockwise">
+   <property name="text">
+    <string>Rotate (90° Clockwise)</string>
+   </property>
+  </action>
+  <action name="actionRotate90Counterclockwise">
+   <property name="text">
+    <string>Rotate (90° Counterclockwise)</string>
+   </property>
+  </action>
+  <action name="actionFlipHorizontal">
+   <property name="text">
+    <string>Flip (Horizontal)</string>
+   </property>
+  </action>
+  <action name="actionFlipVertical">
+   <property name="text">
+    <string>Flip (Vertical)</string>
    </property>
   </action>
  </widget>

@@ -15,6 +15,9 @@ TestWindow::~TestWindow()
     delete scene;
 }
 
+void TestWindow::closeEvent(QCloseEvent *event){
+    emit signalWindowClosed(true);
+}
 void TestWindow::setText1(QString s){
     ui->lbText1->setText(s);
 }

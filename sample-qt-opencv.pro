@@ -26,12 +26,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     imageviewer.cpp \
-    testwindow.cpp
+    testwindow.cpp \
+    webcamwindow.cpp
 
 HEADERS += \
         mainwindow.h \
     imageviewer.h \
-    testwindow.h
+    testwindow.h \
+    webcamwindow.h
 
 FORMS += \
         mainwindow.ui \

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
+#include <QDebug>
 
 namespace Ui {
 class TestWindow;
@@ -24,6 +25,12 @@ public:
 private:
     Ui::TestWindow *ui;
     QGraphicsScene *scene;
+
+private slots:
+    void closeEvent(QCloseEvent *event);
+
+signals:
+    void signalWindowClosed(bool hasClosed);
 };
 
 #endif // TESTWINDOW_H
