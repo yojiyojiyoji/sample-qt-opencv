@@ -30,6 +30,16 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSaveAs_triggered()
 {
+    if(!img.empty()){
+        QString fileName;
+        fileName = QFileDialog::getSaveFileName(this, "Save Image As","", "Image Files(*.png *.jpg *.jpeg *tif)");
+        if(!fileName.isEmpty()&& !fileName.isNull()){
+            std::string fn = fileName.toStdString();
+            cv::imwrite(fn, img);
+        }
+    }else{
+        QMessageBox::warning(this, "No image found", "Please open an image first");
+    }
 }
 
 void MainWindow::on_actionFlipHorizontal_triggered()
@@ -102,15 +112,13 @@ void MainWindow::update_image_label(cv::Mat img){
 }
 
 void MainWindow::play_video(){
-        cap >> vFrameOrigin;
-        cvtColor(vFrameOrigin, vFrameQt, CV_BGR2RGB);
-        QImage tempFrame = QImage(vFrameQt.data, vFrameQt.cols, vFrameQt.rows, vFrameQt.step, QImage::Format_RGB888);
-        QPixmap tempQPM = QPixmap::fromImage(tempFrame);
-        lbImg = new QLabel("Video from Webcam");
-        lbImg->setGeometry(0,0,480,480);
-        int w = lbImg->width();
-        int h = lbImg->height();
-        webcamWin->setFrame(tempQPM);
+    cap >> vFrameOrigin;
+    cvtColor(vFrameOrigin, vFrameQt, CV_BGR2RGB);
+    QImage tempFrame = QImage(vFrameQt.data, vFrameQt.cols, vFrameQt.rows, vFrameQt.step, QImage::Format_RGB888);
+    QPixmap tempQPM = QPixmap::fromImage(tempFrame);
+    lbImg = new QLabel("Video from Webcam");
+    lbImg->setGeometry(0,0,480,480);
+    webcamWin->setFrame(tempQPM);
 }
 
 
