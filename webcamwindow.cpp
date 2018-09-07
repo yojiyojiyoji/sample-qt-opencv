@@ -1,6 +1,7 @@
 #include "webcamwindow.h"
 
-WebcamWindow::WebcamWindow()
+WebcamWindow::WebcamWindow(QWidget *parent) :
+    QWidget(parent)
 {
     this->resize(540,540);
     this->QWidget::setWindowTitle("Webcam Window");
@@ -9,7 +10,6 @@ WebcamWindow::WebcamWindow()
     this->lbImg->setGeometry(20,20,480,480);
     this->hBoxlayout->addWidget(lbImg);
     this->setLayout(hBoxlayout);
-    this->show();
 }
 
 WebcamWindow::~WebcamWindow()

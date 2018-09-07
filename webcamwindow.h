@@ -5,11 +5,12 @@
 #include <QHBoxLayout>
 #include <QLabel>
 
-class WebcamWindow : QWidget
+class WebcamWindow : public QWidget
 {
     Q_OBJECT
+
 public:
-    WebcamWindow();
+    WebcamWindow(QWidget *parent = nullptr);
     ~WebcamWindow();
 
     void setFrame(QPixmap qpxm);

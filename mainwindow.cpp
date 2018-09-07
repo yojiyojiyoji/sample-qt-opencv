@@ -91,6 +91,7 @@ void MainWindow::on_actionOpenWebcamWindow_triggered()
     }
     else{
         webcamWin = new WebcamWindow();
+        webcamWin->show();
         timer = new QTimer();
         this->QObject::connect(timer, SIGNAL(timeout()), this , SLOT(play_video()));
         timer->start(100);
@@ -112,15 +113,12 @@ void MainWindow::update_image_label(cv::Mat img){
 }
 
 void MainWindow::play_video(){
-    cap >> vFrameOrigin;
-    cvtColor(vFrameOrigin, vFrameQt, CV_BGR2RGB);
+    cap >> vFrame;
+    cvtColor(vFrame, vFrameQt, CV_BGR2RGB);
     QImage tempFrame = QImage(vFrameQt.data, vFrameQt.cols, vFrameQt.rows, vFrameQt.step, QImage::Format_RGB888);
     QPixmap tempQPM = QPixmap::fromImage(tempFrame);
-    lbImg = new QLabel("Video from Webcam");
-    lbImg->setGeometry(0,0,480,480);
     webcamWin->setFrame(tempQPM);
 }
-
 
 void MainWindow::on_actionTest01_triggered(){
 

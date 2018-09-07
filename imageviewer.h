@@ -13,13 +13,11 @@ public:
     ImageViewer(QWidget *parent = nullptr);
     ~ImageViewer();
 
+    void setImage(QPixmap qpxm);
+
 private:
     QHBoxLayout *hBoxlayout;
     QLabel *lbImg;
-
-public:
-    void setImage(QPixmap qpxm);
-
 };
 
 #endif // IMAGEVIEWER_H
